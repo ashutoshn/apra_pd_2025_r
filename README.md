@@ -11,49 +11,57 @@ Learn to create reproducible reports and presentations using modern R tools and 
 
 ```
 apra_pd_2025_r/
-├── 00_install_pkgs.R              # Package installation and setup
-├── 000_introduction_agenda.Rmd    # Workshop introduction and agenda
-├── 01_demo_rmarkdown.Rmd         # Basic R Markdown demonstration
-├── 02_simple_analysis.Rmd        # Simple data analysis example
-├── 03_parameterized_analysis.Rmd # Parameterized reporting
-├── 004_powerpoint_officer.R      # PowerPoint generation with officer
-├── 005_custom_powerpoint_officer.R # Custom PowerPoint templates
-├── 006_genai_analysis.R          # GenAI integration examples
-├── _targets.R                    # Targets workflow configuration
-├── target_functions.R            # Custom functions for targets pipeline
+├── 00_install_pkgs.R                  # Package installation and dependency management
+├── 01_introduction_agenda.Rmd         # Workshop and Rmarkdown introduction, agenda, and presenter bio
+├── 02_demo_rmarkdown.Rmd             # Basic R Markdown demonstration
+├── 03_simple_analysis.Rmd            # Palmer Penguins data analysis with commented sections
+├── 04_parameterized_analysis.Rmd     # Parameterized reporting with species filtering
+├── 05_powerpoint_officer.R           # Basic PowerPoint generation with officer
+├── 06_custom_powerpoint_officer.R    # Advanced PowerPoint with custom Canva templates
+├── 07_genai_analysis.R               # GenAI integration with Anthropic Claude
+├── _targets.R                        # Targets workflow configuration
+├── target_functions.R                # Helper functions for targets pipeline
 ```
 
 ## Workshop Agenda
 
-1. **Basic Introduction to R Markdown**
-   - Document structure and syntax
+1. **Introduction and Setup** (`01_introduction_agenda.Rmd`, `00_install_pkgs.R`)
+   - Presenter introduction and LinkedIn QR code
+   - Package installation with dependency management
+   - Workshop objectives and scope
+
+2. **R Markdown Fundamentals** (`02_demo_rmarkdown.Rmd`)
+   - Document structure and YAML headers
    - Code chunks and output formatting
-   - HTML, PDF, and presentation outputs
+   - Multi-format output (HTML, PDF)
 
-2. **Simple Data Analysis**
-   - Exploratory data analysis
-   - Data visualization with ggplot2
-   - Summary statistics and tables
+3. **Data Analysis Workflow** (`03_simple_analysis.Rmd`)
+   - Palmer Penguins dataset exploration
+   - Data visualization with ggplot2 and viridis colors
+   - Commented code sections for presentation flexibility
 
-3. **Parameterized Analysis**
-   - Creating flexible, reusable reports
-   - Parameter-driven analysis workflows
-   - Automated report generation
+4. **Parameterized Reporting** (`04_parameterized_analysis.Rmd`)
+   - Species-specific analysis with parameters
+   - Dynamic filtering and model building
+   - Automated table generation with gt and gtsummary
+   - Island-specific regression models
 
-4. **Targets Package Workflow**
+5. **Targets Package Pipeline** (`_targets.R`, `target_functions.R`)
    - Reproducible data pipelines
-   - Dependency management
-   - Caching and performance optimization
+   - Function-based workflow design
+   - Dependency management and caching
 
-5. **Advanced PowerPoint with Officer**
-   - Programmatic PowerPoint creation
-   - Custom templates and branding
-   - Automated slide generation
+6. **PowerPoint Automation** (`05_powerpoint_officer.R`, `06_custom_powerpoint_officer.R`)
+   - Basic PowerPoint generation with officer
+   - Custom Canva template integration
+   - Advanced chart styling and layout positioning
+   - Automated slide population with data insights
 
-6. **GenAI Integration**
-   - AI-powered analysis and insights
-   - Automated content generation
-   - Modern AI workflows in R
+7. **GenAI Integration** (`07_genai_analysis.R`)
+   - Anthropic Claude API integration via ellmer
+   - Structured data extraction and analysis
+   - AI-powered insights generation
+   - Automated content creation workflows
 
 ## Prerequisites
 
@@ -73,20 +81,39 @@ source("00_install_pkgs.R")
 
 ## Key Dependencies
 
-- **Core**: `tidyverse`, `rmarkdown`, `targets`
-- **Analysis**: `e1071`, `palmerpenguins`, `summarytools`
+- **Core Packages**: `tidyverse`, `rmarkdown`, `targets`
+- **Data & Analysis**: `palmerpenguins`, `summarytools`, `e1071`, `dplyr`, `readr`
 - **Visualization**: `ggplot2`, `ggthemes`, `viridis`, `scales`
-- **Tables**: `gt`, `gtsummary`, `flextable`
-- **Presentations**: `officer` (for PowerPoint generation)
+- **Tables & Reporting**: `gt`, `gtsummary`, `flextable`
+- **PowerPoint Generation**: `officer`
 - **AI Integration**: `openai`, `ellmer`
+- **Utilities**: `qrcode`, `RJSONIO`
 
 ## Getting Started
 
-1. **Explore Basic R Markdown**: Start with `01_demo_rmarkdown.Rmd`
-2. **Run Simple Analysis**: Review `02_simple_analysis.Rmd`
-3. **Try Parameterized Reports**: Experiment with `03_parameterized_analysis.Rmd`
-4. **Build Targets Pipeline**: Execute `targets::tar_make()` to run the workflow
-5. **Generate PowerPoint**: Run scripts in `004_powerpoint_officer.R`
+1. **Setup Environment**: Run `source("00_install_pkgs.R")` to install all dependencies
+2. **Explore Introduction**: Open `01_introduction_agenda.Rmd` for workshop overview
+3. **Learn R Markdown**: Start with `02_demo_rmarkdown.Rmd`
+4. **Simple Analysis**: Review `03_simple_analysis.Rmd` with Palmer Penguins data
+5. **Parameterized Reports**: Experiment with `04_parameterized_analysis.Rmd`
+6. **Build Targets Pipeline**: Execute `targets::tar_make()` to run the workflow
+7. **Generate PowerPoint**: Run `05_powerpoint_officer.R` and `06_custom_powerpoint_officer.R`
+8. **AI Integration**: Explore `07_genai_analysis.R` for GenAI workflows
+
+## File Details
+
+### Core Analysis Files
+- **`03_simple_analysis.Rmd`**: Demonstrates Palmer Penguins analysis with toggleable code sections using commented blocks for presentation flexibility
+- **`04_parameterized_analysis.Rmd`**: Shows parameterized reporting with species filtering, dynamic model building, and island-specific analysis
+- **`07_genai_analysis.R`**: Integrates Anthropic Claude for automated data insights with structured output formatting
+
+### PowerPoint Generation
+- **`05_powerpoint_officer.R`**: Basic officer usage with Titanic dataset, multiple slide layouts, and chart integration
+- **`06_custom_powerpoint_officer.R`**: Advanced implementation with custom Canva templates, precise positioning, and enhanced styling
+
+### Pipeline Management  
+- **`_targets.R`**: Targets pipeline configuration with data loading and processing steps
+- **`target_functions.R`**: Modular functions for data preparation, modeling, and visualization
 
 
 ## What This Workshop Does NOT Cover
